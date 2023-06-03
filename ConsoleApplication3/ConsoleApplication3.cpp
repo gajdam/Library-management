@@ -2,17 +2,17 @@
 #include <random>
 #include <fstream>
 #include "Usser.cpp"
+#include "Rents.h"
 using namespace std;
 
 
-
 int main() {
-	int choise = 0, id = 0;
+	int choice = 0, id = 0;
 	string name, surr, password;
 	srand(time(NULL));
 	cout << "1 Sign In - 2 Sign up";
-	cin >> choise;
-	if (choise == 1) {
+	cin >> choice;
+	if (choice == 1) {
 		cout << "Enter Your Name: ";
 		cin >> name;
 		cout << "Enter Your SurrName: ";
@@ -29,7 +29,7 @@ int main() {
 			cout << "Invalid username, surrname, id or password. Please try again." << endl;
 		}
 	}
-	if (choise == 2) {
+	if (choice == 2) {
 		cout << "Set Name: ";
 		cin >> name;
 		cout << "Set SurrName: ";
@@ -42,5 +42,19 @@ int main() {
 		user.SaveIntoFile();
 		cout << "Account Created Succesfully!";
 	}
+
+    if (choice == 3) //
+    {
+        int borrowerId = 1;
+        int bookId = 2;
+        int year = 2023;
+        int month = 6;
+        int day = 3;
+
+        Rents rents(borrowerId, bookId, year, month, day);
+        std::tm rentDate = rents.getRentDate();
+        std::cout << "Data wypożyczenia: " << rentDate.tm_year + 1900 << "-" << rentDate.tm_mon + 1 << "-" << rentDate.tm_mday << std::endl;
+
+    }
 	return 0;
 }

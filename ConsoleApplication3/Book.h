@@ -10,6 +10,7 @@ class Book
 		Author author;
 		string distributionYear;
 		string type;
+        int bookId;
 	public:
 		string getTitle() {
 			return title;
@@ -20,13 +21,17 @@ class Book
 		string getType() {
 			return type;
 		}
+        int getBookId() {
+            return bookId;
+        }
 
 		Book(string _title, Author _author,
-			string _distributionYear, string _type) {
+			string _distributionYear, string _type, int _bookId) {
 			title = _title;
 			author = _author;
 			distributionYear = _distributionYear;
 			type = _type;
+            bookId = _bookId;
 		}
 
 };
