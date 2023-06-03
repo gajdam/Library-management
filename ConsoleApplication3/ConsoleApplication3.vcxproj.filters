@@ -27,6 +27,9 @@
     <ClCompile Include="Author.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Usser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Book.h">
@@ -35,5 +38,11 @@
     <ClInclude Include="Author.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Usser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
   </ItemGroup>
 </Project>
