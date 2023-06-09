@@ -143,12 +143,12 @@
     <ClCompile Include="Book.cpp" />
     <ClCompile Include="ConsoleApplication3.cpp" />
     <ClCompile Include="Source.cpp" />
-    <ClCompile Include="Usser.cpp" />
+    <ClCompile Include="User.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Author.h" />
     <ClInclude Include="Book.h" />
-    <ClInclude Include="Usser.h" />
+    <ClInclude Include="User.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />

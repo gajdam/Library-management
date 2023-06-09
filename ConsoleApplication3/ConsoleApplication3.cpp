@@ -1,7 +1,7 @@
 #include <iostream>
 #include <random>
 #include <fstream>
-#include "Usser.cpp"
+#include "User.cpp"
 #include "Rents.h"
 using namespace std;
 
@@ -21,8 +21,8 @@ int main() {
 		cin >> id;
 		cout << "Enter Your Password: ";
 		cin >> password;
-		Usser user(name, surr, id, password);
-		if (user.CheckIntoFile(name, surr, id, password)) {
+		User user(id, name, surr, password);
+		if (user.CheckIntoFile()) {
 			cout << "Login Successful!" << endl;
 		}
 		else {
@@ -38,7 +38,7 @@ int main() {
 		cin >> password;
 		int iSecret = rand() % 1000 + 1;
 		id = iSecret;
-		Usser user(name, surr, id, password);
+		User user(id, name, surr, password);
 		user.SaveIntoFile();
 		cout << "Account Created Succesfully!";
 	}
@@ -53,7 +53,7 @@ int main() {
 
         Rents rents(borrowerId, bookId, year, month, day);
         std::tm rentDate = rents.getRentDate();
-        std::cout << "Data wypożyczenia: " << rentDate.tm_year + 1900 << "-" << rentDate.tm_mon + 1 << "-" << rentDate.tm_mday << std::endl;
+        std::cout << "Date of rent: " << rentDate.tm_year + 1900 << "-" << rentDate.tm_mon + 1 << "-" << rentDate.tm_mday << std::endl;
 
     }
 	return 0;
