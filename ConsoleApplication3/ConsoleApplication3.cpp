@@ -3,13 +3,17 @@
 #include <fstream>
 #include "User.cpp"
 #include "Rents.h"
+#include "Author.h"
+#include "Book.h"
+
 using namespace std;
 
-
 int main() {
-	int choice = 0, id = 0;
-	string name, surr, password;
+	int choice = 0, id = 0, distYear, idOfBook;
+	string name, surr, password, nameAuthor, surnameAuthor;
 	srand(time(NULL));
+    Author author;
+    string title, typeOfBook;
 	cout << "1 Sign In - 2 Sign up";
 	cin >> choice;
 	if (choice == 1) {
@@ -32,7 +36,7 @@ int main() {
 	if (choice == 2) {
 		cout << "Set Name: ";
 		cin >> name;
-		cout << "Set SurrName: ";
+		cout << "Set Surname: ";
 		cin >> surr;
 		cout << "Set Password: ";
 		cin >> password;
@@ -40,10 +44,33 @@ int main() {
 		id = iSecret;
 		User user(id, name, surr, password);
 		user.SaveIntoFile();
-		cout << "Account Created Succesfully!";
+		cout << "Account Created Succesfully!"<<endl;
+        cout<<"Your id is" << " "<< id;
 	}
+    if (choice == 3)
+    {
+        cout << "Set title: ";
+        cin >> title;
+        cout << "Set name of the author: ";
+        cin >> nameAuthor;
+        cout << "Set surname of the author: ";
+        cin >> surnameAuthor;
+        cout << "Set distribution year: ";
+        cin >> distYear;
+        cout << "Set type of the book: ";
+        cin >> typeOfBook;
 
-    if (choice == 3) //
+        author.setNameAuthor(nameAuthor);
+        author.setSurnameAuthor(surnameAuthor);
+
+        idOfBook= Book::AutoIncrementIdOfBook();
+        Book book(idOfBook, title, author, distYear, typeOfBook);
+        book.SaveIntoFile();
+        book.ShowBook();
+    }
+
+
+    if (choice == 4) //
     {
         int borrowerId = 1;
         int bookId = 2;

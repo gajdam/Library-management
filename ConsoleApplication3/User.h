@@ -12,8 +12,6 @@ class User {
         bool loginSuccess{};
 
     public:
-
-
         User(int _id, string _name, string _surname, string _password) {
             name = std::move(_name);
             surname = std::move(_surname);
@@ -44,6 +42,8 @@ class User {
             file.close();
             return false;
         }
+
+
 
 
 };
