@@ -53,7 +53,7 @@ int main() {
 
         Rents rents(borrowerId, bookId, year, month, day);
         std::tm rentDate = rents.getRentDate();
-        std::cout << "Date of rent: " << rentDate.tm_year + 1900 << "-" << rentDate.tm_mon + 1 << "-" << rentDate.tm_mday << std::endl;
+        std::cout << "Date of rent: " << rentDate.tm_year << "-" << rentDate.tm_mon << "-" << rentDate.tm_mday << std::endl;
 
     }
 	return 0;

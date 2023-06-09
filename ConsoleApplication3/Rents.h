@@ -17,8 +17,8 @@ class Rents {
         Rents(int _borrowerId, int _bookId, int year, int month, int day) {
             borrowerId = _borrowerId;
             bookId = _bookId;
-            rentDate.tm_year = year - 1900;
-            rentDate.tm_mon = month - 1;
+            rentDate.tm_year = year ;
+            rentDate.tm_mon = month;
             rentDate.tm_mday = day;
         }
 };
