@@ -2,48 +2,73 @@
 #include <random>
 #include <fstream>
 #include <utility>
+
 using namespace std;
+
 class User {
-    private:
-        string name;
-        string surname;
-        int id;
-        string password;
-        bool loginSuccess{};
+private:
+    string name;
+    string surname;
+    int id;
+    string password;
 
-    public:
-        User(int _id, string _name, string _surname, string _password) {
-            name = std::move(_name);
-            surname = std::move(_surname);
-            id = _id;
-            password = std::move(_password);
+public:
+    User(int _id, string _password) {
+        id = _id;
+        password = std::move(_password);
+        LoadToDataFile();
+    }
+
+    void SaveIntoFile() {
+        ofstream file("Users.txt", ios::app);
+        if (file.is_open()) {
+            file << id << " " << name << " " << surname << " " << password << " "  << endl;
         }
+        else {
+            cout << "Error opening file." << endl;
+        }
+    }
 
-        void SaveIntoFile() {
-            ofstream file("Users.txt", ios::app);
-            if (file.is_open()) {
-                file<< id<<" "<< name << " " << surname <<  " " << password << endl;
-            }
-            else {
-                cout << "err";
+    bool CheckIntoFile() {
+        ifstream file("Users.txt");
+        int idCheck, permissionCheck;
+        string nameCheck, surnameCheck, passwordCheck;
+        while (file >> idCheck >> nameCheck >> surnameCheck >> passwordCheck) {
+            if (idCheck == id && passwordCheck == password) {
+                file.close();
+                return true;
             }
         }
+        file.close();
+        return false;
+    }
 
-        bool CheckIntoFile() {
-            ifstream file("users.txt");
-            int idCheck;
-            string nameCheck, surnameCheck, passwordCheck;
-            while (file >> idCheck >> nameCheck >> surnameCheck >> passwordCheck) {
-                if (nameCheck == name && surnameCheck == surname && idCheck == id && passwordCheck == password) {
-                    file.close();
-                    return true;
-                }
+    void LoadToDataFile() {
+        ifstream file("Users.txt");
+        int idCheck, permissionCheck;
+        string nameCheck, surnameCheck, passwordCheck;
+        while (file >> idCheck >> nameCheck >> surnameCheck >> passwordCheck) {
+            if (idCheck == id) {
+                name = nameCheck;
+                surname = surnameCheck;
+                break;
             }
-            file.close();
-            return false;
         }
+        file.close();
+    }
 
+    string getName() const {
+        return name;
+    }
 
+    string getSurname() const {
+        return surname;
+    }
+    void setName(const string& _name) {
+        name = _name;
+    }
 
-
+    void setSurname(const string& _surname) {
+        surname = _surname;
+    }
 };
