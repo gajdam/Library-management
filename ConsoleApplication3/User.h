@@ -31,7 +31,7 @@ public:
 
     bool CheckIntoFile() {
         ifstream file("Users.txt");
-        int idCheck, permissionCheck;
+        int idCheck;
         string nameCheck, surnameCheck, passwordCheck;
         while (file >> idCheck >> nameCheck >> surnameCheck >> passwordCheck) {
             if (idCheck == id && passwordCheck == password) {
@@ -45,7 +45,7 @@ public:
 
     void LoadToDataFile() {
         ifstream file("Users.txt");
-        int idCheck, permissionCheck;
+        int idCheck;
         string nameCheck, surnameCheck, passwordCheck;
         while (file >> idCheck >> nameCheck >> surnameCheck >> passwordCheck) {
             if (idCheck == id) {
@@ -57,13 +57,6 @@ public:
         file.close();
     }
 
-    string getName() const {
-        return name;
-    }
-
-    string getSurname() const {
-        return surname;
-    }
     void setName(const string& _name) {
         name = _name;
     }
