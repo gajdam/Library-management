@@ -37,13 +37,13 @@ class Book
 
         void ShowBook()
         {
-            cout<<"Book entitled "<< title << " written by " << author.getNameAuthor() <<" "<<author.getSurnameOfAuthor()<< "- year "<<distributionYear;
+            cout<<"Book entitled \"" << title << "\" written by " << author.getNameAuthor() <<" "<<author.getSurnameOfAuthor()<< " - year "<<distributionYear;
         }
 
         void SaveIntoFile() {
             ofstream file("SuppliesOfBooks.txt", ios::app);
             if (file.is_open()) {
-                file<< bookId <<" "<< title << " " << author.getNameAuthor() <<  " " << author.getSurnameOfAuthor() <<" "<< distributionYear<<" " << type << endl;
+                file<< bookId << "," << title << "," << author.getNameAuthor() <<  "," << author.getSurnameOfAuthor() << "," << distributionYear<< "," << type << "," << "0" << endl;
             }
             else {
                 cout << "err";
@@ -51,15 +51,12 @@ class Book
         }
         static int AutoIncrementIdOfBook() {
             ifstream file("SuppliesOfBooks.txt");
-            int bookid, distYear, temp;
-            string titleOfBook, nameAuthor, surnameAuthor, typeOfBook;
-            while (file >> bookid >> titleOfBook >> nameAuthor >> surnameAuthor >> distYear >> typeOfBook) {
-                temp=bookid;
+            int temp = 1;
+            string line;
+            while (getline(file, line)) {
+                temp++;
             }
-            temp++;
             return temp;
         }
-
-
 };
 

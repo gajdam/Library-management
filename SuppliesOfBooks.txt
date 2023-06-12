@@ -1,1 +1,1 @@
-1 PanTadzio Adam Mickiewicz 1850 Dramat
+1,Ala ma kota,William,Szekspir,1974,Dramat,0
