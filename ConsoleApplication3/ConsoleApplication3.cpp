@@ -4,6 +4,8 @@
 #include "Rents.h"
 #include "Author.h"
 #include "Admin.h"
+#include "Raports.h"
+#include "HelpingClass.h"
 
 using namespace std;
 
@@ -20,6 +22,8 @@ void signIn() {
     if (user.CheckIntoFile()) {
         if (user.getPermissions() == 1) {
             cout << "Welcome, admin!" << endl;
+            Admin admin;
+            admin.AdminMenu();
         } else {
             cout << "Welcome, user!" << endl;
         }
@@ -51,32 +55,7 @@ void signUp() {
     cout << "Your id is: " << id << endl;
 }
 
-void addBook() {
-    Author author;
-    string title, authorName, authorSurname, typeOfBook;
-    int distYear, idOfBook;
 
-    cout << "Set title: ";
-    cin.ignore();
-    getline(cin, title);
-    cout << "Set name of the author: ";
-    getline(cin, authorName);
-    cout << "Set surname of the author: ";
-    getline(cin, authorSurname);
-    cout << "Set distribution year: ";
-    cin >> distYear;
-    cout << "Set type of the book: ";
-    cin.ignore();
-    getline(cin, typeOfBook);
-
-    author.setNameAuthor(authorName);
-    author.setSurnameAuthor(authorSurname);
-
-    idOfBook = Book::AutoIncrementIdOfBook();
-    Book book(idOfBook, title, author, distYear, typeOfBook);
-    book.SaveIntoFile();
-    book.ShowBook();
-}
 
 int main() {
     int choice, id = 0, distYear, idOfBook;
