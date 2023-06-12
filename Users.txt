@@ -1,7 +1,2 @@
-269 Kuba Czekajski 123
-98 Maciej Gajda 123
-380 Adam Grzana 123
-191 Jasiek Olszewski 123
-446 Kamil Socko 123
-835 Remigiusz Bielanski 123 
-75 gajdam gajdam muka 
+877 gajdam madjam 123 0
+123 norbert maciek 123 1

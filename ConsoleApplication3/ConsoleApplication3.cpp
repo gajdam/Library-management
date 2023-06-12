@@ -1,10 +1,9 @@
 #include <iostream>
 #include <random>
 #include <fstream>
-#include "User.h"
 #include "Rents.h"
 #include "Author.h"
-#include "Book.h"
+#include "Admin.h"
 
 using namespace std;
 
@@ -12,14 +11,18 @@ void signIn() {
     int id;
     string password;
 
-    cout << "enter your id: ";
+    cout << "Enter your id: ";
     cin >> id;
-    cout << "enter password: ";
+    cout << "Enter password: ";
     cin >> password;
 
     User user(id, password);
     if (user.CheckIntoFile()) {
-        cout << "Login Successful!" << endl;
+        if (user.getPermissions() == 1) {
+            cout << "Welcome, admin!" << endl;
+        } else {
+            cout << "Welcome, user!" << endl;
+        }
     }
     else {
         cout << "Invalid ID or password. Please try again." << endl;
