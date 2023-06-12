@@ -54,15 +54,17 @@ void addBook() {
     int distYear, idOfBook;
 
     cout << "Set title: ";
-    cin >> title;
+    cin.ignore();
+    getline(cin, title);
     cout << "Set name of the author: ";
-    cin >> authorName;
+    getline(cin, authorName);
     cout << "Set surname of the author: ";
-    cin >> authorSurname;
+    getline(cin, authorSurname);
     cout << "Set distribution year: ";
     cin >> distYear;
     cout << "Set type of the book: ";
-    cin >> typeOfBook;
+    cin.ignore();
+    getline(cin, typeOfBook);
 
     author.setNameAuthor(authorName);
     author.setSurnameAuthor(authorSurname);
@@ -74,7 +76,7 @@ void addBook() {
 }
 
 int main() {
-    int choice = 0, id = 0, distYear, idOfBook;
+    int choice, id = 0, distYear, idOfBook;
     string nameAuthor, surnameAuthor;
     srand(time(NULL));
 
