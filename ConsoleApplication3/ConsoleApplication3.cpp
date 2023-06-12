@@ -97,15 +97,16 @@ int main() {
         addBook();
     }
     else if (choice == 4) {
-        int borrowerId = 1;
-        int bookId = 2;
-        int year = 2023;
-        int month = 6;
-        int day = 3;
-
-        Rents rents(borrowerId, bookId, year, month, day);
-        std::tm rentDate = rents.getRentDate();
-        std::cout << "Date of rent: " << rentDate.tm_year << "-" << rentDate.tm_mon << "-" << rentDate.tm_mday << std::endl;
+//        int borrowerId = 1;
+//        int bookId = 2;
+//        int year = 2023;
+//        int month = 6;
+//        int day = 3;
+//
+//        Rents rents(borrowerId, bookId, year, month, day);
+//        std::tm rentDate = rents.getRentDate();
+//        std::cout << "Date of rent: " << rentDate.tm_year << "-" << rentDate.tm_mon << "-" << rentDate.tm_mday << std::endl;
+        Rents::showRentable();
 
 
     }
