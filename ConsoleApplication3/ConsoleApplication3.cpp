@@ -4,7 +4,6 @@
 #include "Rents.h"
 #include "Author.h"
 #include "Admin.h"
-#include "Raports.h"
 
 using namespace std;
 
@@ -94,6 +93,7 @@ int main() {
     else {
         Raports::CountSupplies(); //chwilowo
         Raports::CountSuppliesByTitle("Pan Tadeusz");
+        Raports::RaportForAdmin();
         cout << "bye";
         return 0;
     }

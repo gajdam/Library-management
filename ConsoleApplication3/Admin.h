@@ -2,6 +2,9 @@
 #include <string>
 #include "User.h"
 #include "Book.h"
+#include "Raports.h"
+#include <sstream>
+
 using namespace std;
 void addBook() {
     Author author;
@@ -30,20 +33,30 @@ void addBook() {
     book.ShowBook();
 }
 
-
 class Admin {
 public:
       void AdminMenu() {
         int choice = 0;
         cout << "Select Option From Menu"<<endl;
         cout << "1. Add Book" << endl;
-        cout << "2. Show Reports" << endl;
+        cout << "2. Show Reports about supplies" << endl;
+        cout << "3. Show Reports about supplies by title" << endl;
         cin >> choice;
+        string title;
         switch (choice) {
             case 1:
                 addBook();
                 break;
             case 2:
+                Raports:: Raports::CountSupplies();
+                break;
+            case 3: // nie wiem co jest zjebane
+                cout<<"About which title you want to get raport?"<<endl;
+                cin>>title;
+                Raports::CountSuppliesByTitle(title);
+                break;
+            case 4:
+                Raports::RaportForAdmin();
                 break;
         }
     }

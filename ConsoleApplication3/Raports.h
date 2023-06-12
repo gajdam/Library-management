@@ -24,7 +24,6 @@ class Raports {
             while(getline(ss, oneVar, ',')){
                 lineVars.push_back(oneVar);
             }
-
             if(lineVars[6] == "0"){
                 i++;
             }
@@ -51,6 +50,29 @@ class Raports {
         }
         cout<<"Amout of "<<title<<" is "<<i<<endl;
     }
+    static void RaportForAdmin()
+    {
+        ifstream file("SuppliesOfBooks.txt");
+        string line;
+        while(getline(file, line)){
+            stringstream ss(line);
+            string oneVar;
+            vector<string> lineVars;
+            while(getline(ss, oneVar, ',')){
+                lineVars.push_back(oneVar);
+            }
+
+            if (lineVars[6]=="0")
+            {
+                cout<<"\x1B[32mOK \033[0m"<<"book entitled "<<lineVars[2]<<" written by "<<lineVars[2]<<" "<<lineVars[3]<< " established in "<<lineVars[4]<<" \x1B[32mis rentable\033[0m"<<endl;
+            }
+            else
+            {
+                cout<<"\x1B[31mX  \033[0m"<<"book entitled "<<lineVars[2]<<" written by "<<lineVars[2]<<" "<<lineVars[3]<< " established in "<<lineVars[4]<<" \x1B[31misn't avalible to rent\033[0m"<<endl;
+            }
+        }
+    }
+
 
 };
 
