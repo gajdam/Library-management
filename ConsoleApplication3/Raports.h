@@ -1,29 +1,31 @@
 #include <iostream>
 #include <fstream>
+#include <ctime>
+#include <sstream>
+#include <vector>
+#include <string>
 
 
 using namespace std;
 
 class Raports {
-    private:
-
     public:
-    Raports()
-    {
-
-    }
 
     static void CountSupplies()
     {
+        string line;
         ifstream file("SuppliesOfBooks.txt");
         int i=0;
-        int bookid, distYear;
-        string titleOfBook, nameAuthor, surnameAuthor, typeOfBook;
-        string isRent;
-        while (file >> bookid >> titleOfBook >> nameAuthor >> surnameAuthor >> distYear >> typeOfBook>>isRent)
-        {
-            if (isRent == "0")
-            {
+        while(getline(file, line)){
+            stringstream ss(line);
+            string oneVar;
+            vector<string> lineVars;
+
+            while(getline(ss, oneVar, ',')){
+                lineVars.push_back(oneVar);
+            }
+
+            if(lineVars[6] == "0"){
                 i++;
             }
         }
@@ -33,17 +35,21 @@ class Raports {
     {
         ifstream file("SuppliesOfBooks.txt");
         int i=0;
-        int bookid, distYear;
-        string titleOfBook, nameAuthor, surnameAuthor, typeOfBook;
-        string isRent;
-        while (file >> bookid >> titleOfBook >> nameAuthor >> surnameAuthor >> distYear >> typeOfBook>>isRent)
-        {
-            if (isRent == "0" && titleOfBook==title)
-            {
+        string line;
+        while(getline(file, line)){
+            stringstream ss(line);
+            string oneVar;
+            vector<string> lineVars;
+
+            while(getline(ss, oneVar, ',')){
+                lineVars.push_back(oneVar);
+            }
+
+            if(lineVars[6] == "0"&&lineVars[1]==title){
                 i++;
             }
-            cout<<"The supplies of "<< title<<" supplies are "<<i<<endl;
         }
+        cout<<"Amout of "<<title<<" is "<<i<<endl;
     }
 
 };

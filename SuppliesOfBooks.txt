@@ -3,3 +3,4 @@
 3,Ala ma kota,William,Szekspir,1974,Dramat,1
 4,Ala ma kota,William,Szekspir,1974,Dramat,0
 5,Jebana zjawa,Kurt,Wagner,2011,Komedia,0
+6,Pan Tadeusz,Adam,Mickiewicz,1850,Dramat,0

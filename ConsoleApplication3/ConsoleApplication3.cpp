@@ -5,7 +5,6 @@
 #include "Author.h"
 #include "Admin.h"
 #include "Raports.h"
-#include "HelpingClass.h"
 
 using namespace std;
 
@@ -93,6 +92,8 @@ int main() {
 
     }
     else {
+        Raports::CountSupplies(); //chwilowo
+        Raports::CountSuppliesByTitle("Pan Tadeusz");
         cout << "bye";
         return 0;
     }

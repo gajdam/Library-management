@@ -26,6 +26,9 @@ class Rents {
             rentDate.tm_mday = day;
         }
 
+
+
+
         static void showRentable(){
             ifstream file("SuppliesOfBooks.txt");
             string line;
