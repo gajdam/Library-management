@@ -43,7 +43,7 @@ class Book
         void SaveIntoFile() {
             ofstream file("SuppliesOfBooks.txt", ios::app);
             if (file.is_open()) {
-                file<< bookId << "," << title << "," << author.getNameAuthor() <<  "," << author.getSurnameOfAuthor() << "," << distributionYear<< "," << type << "," << "0" << endl;
+                file<< bookId << " " << title << " " << author.getNameAuthor() <<  " " << author.getSurnameOfAuthor() << " " << distributionYear<< " " << type << " " << "0" << endl;
             }
             else {
                 cout << "err";
