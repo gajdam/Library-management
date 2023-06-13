@@ -103,14 +103,15 @@ int main() {
     do {
         cout << "Welcome to the book library!!" << endl;
         cout << "1. Rent a book" << endl;
-        cout << "2. Exit" << endl;
+        cout << "2. Show your rented books" << endl;
+        cout << "3. Exit" << endl;
         cout << "Choose: ";
         cin >> choice;
         if (choice == "1") {
             rentABook(userID);
         }
         system("cls");
-    } while(choice != "2");
+    } while(choice != "3");
     cout << "Goodbye!" << endl;
 
     return 0;
