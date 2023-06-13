@@ -56,8 +56,6 @@ class Rents {
              if (file.is_open()) {
                  file << rentId << "," << bookId << "," << borrowerId << "," << rentDate << "," << returnDate << endl;
                  cout << "Succesfully rented, you have time until: " << returnDate << endl;
-
-
              }
              else {
                  cout << "err";

@@ -58,6 +58,9 @@ public:
             case 4:
                 Raports::RaportForAdmin();
                 break;
+            case 5:
+                Raports::RaportOfRents();
+                break;
         }
     }
 };

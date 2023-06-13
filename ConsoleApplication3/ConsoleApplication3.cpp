@@ -54,32 +54,32 @@ void signUp() {
     cout << "Your id is: " << id << endl;
 }
 
-void addBook() {
-    Author author;
-    string title, authorName, authorSurname, typeOfBook;
-    int distYear, idOfBook;
-
-    cout << "Set title: ";
-    cin.ignore();
-    getline(cin, title);
-    cout << "Set name of the author: ";
-    getline(cin, authorName);
-    cout << "Set surname of the author: ";
-    getline(cin, authorSurname);
-    cout << "Set distribution year: ";
-    cin >> distYear;
-    cout << "Set type of the book: ";
-    cin.ignore();
-    getline(cin, typeOfBook);
-
-    author.setNameAuthor(authorName);
-    author.setSurnameAuthor(authorSurname);
-
-    idOfBook = Book::AutoIncrementIdOfBook();
-    Book book(idOfBook, title, author, distYear, typeOfBook);
-    book.SaveIntoFile();
-    book.ShowBook();
-}
+//void addBook() {
+//    Author author;
+//    string title, authorName, authorSurname, typeOfBook;
+//    int distYear, idOfBook;
+//
+//    cout << "Set title: ";
+//    cin.ignore();
+//    getline(cin, title);
+//    cout << "Set name of the author: ";
+//    getline(cin, authorName);
+//    cout << "Set surname of the author: ";
+//    getline(cin, authorSurname);
+//    cout << "Set distribution year: ";
+//    cin >> distYear;
+//    cout << "Set type of the book: ";
+//    cin.ignore();
+//    getline(cin, typeOfBook);
+//
+//    author.setNameAuthor(authorName);
+//    author.setSurnameAuthor(authorSurname);
+//
+//    idOfBook = Book::AutoIncrementIdOfBook();
+//    Book book(idOfBook, title, author, distYear, typeOfBook);
+//    book.SaveIntoFile();
+//    book.ShowBook();
+//}
 
 void rentABook(int userId) {
     int idOfRent, bookId;
@@ -123,7 +123,7 @@ int main() {
         else
             cout << "There's no such option, try again!: ";
     }
-    system("cls");
+    //system("cls");
 
     do {
         cout << "Welcome to the book library!!" << endl;
