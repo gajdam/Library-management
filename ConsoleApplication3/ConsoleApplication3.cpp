@@ -20,6 +20,8 @@ int signIn() {
     if (user.CheckIntoFile()) {
         if (user.getPermissions() == 1) {
             cout << "Welcome, admin!" << endl;
+            Admin admin;
+            admin.AdminMenu();
         } else {
             cout << "Welcome, user!" << endl;
         }
