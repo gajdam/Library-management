@@ -54,6 +54,8 @@ void signUp() {
     cout << "Your id is: " << id << endl;
 }
 
+
+
 void rentABook(int userId) {
     int idOfRent, bookId;
     Rents::showRentable();
@@ -71,6 +73,60 @@ void rentABook(int userId) {
     Rents rent(idOfRent, userId, bookId, rentDate, returnDate);
     rent.saveRentToFile();
 }
+
+void RentedBook(int userId) {
+    ifstream file("BookRents.txt");
+    string line;
+    bool found = false;
+
+    cout << "Your rented books:" << endl;
+
+    if (file.is_open()) {
+        while (getline(file, line)) {
+            stringstream ss(line);
+            string oneVar;
+            vector<string> lineVars;
+
+            while (getline(ss, oneVar, ',')) {
+                lineVars.push_back(oneVar);
+            }
+
+            if (stoi(lineVars[2]) == userId) {
+                ifstream bookFile("SuppliesOfBooks.txt");
+                string bookLine;
+
+                if (bookFile.is_open()) {
+                    while (getline(bookFile, bookLine)) {
+                        stringstream bookSS(bookLine);
+                        string bookVar;
+                        vector<string> bookVars;
+
+                        while (getline(bookSS, bookVar, ',')) {
+                            bookVars.push_back(bookVar);
+                        }
+
+                        if (stoi(bookVars[0]) == stoi(lineVars[1])) {
+                            cout << "- \"" << bookVars[1] << "\": " << bookVars[2] << " " << bookVars[3] << " - " << bookVars[4] << endl;
+                            found = true;
+                            break;
+                        }
+                    }
+
+                    bookFile.close();
+                }
+            }
+        }
+        file.close();
+
+        if (!found) {
+            cout << "You haven't rented any books yet." << endl;
+        }
+    }
+    else {
+        cout << "File could not open" << endl;
+    }
+}
+
 
 int main() {
     string choice;
@@ -108,7 +164,9 @@ int main() {
         if (choice == "1") {
             rentABook(userID);
         }
-        system("cls");
+        else if (choice == "2") {
+            RentedBook(userID);
+        }
     } while(choice != "3");
     cout << "Goodbye!" << endl;
 
