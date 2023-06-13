@@ -4,6 +4,8 @@
 #include "Rents.h"
 #include "Author.h"
 #include "Admin.h"
+#include "Raports.h"
+#include "HelpingClass.h"
 
 using namespace std;
 

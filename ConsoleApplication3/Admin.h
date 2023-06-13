@@ -32,7 +32,6 @@ void addBook() {
     book.SaveIntoFile();
     book.ShowBook();
 }
-
 class Admin {
 public:
       void AdminMenu() {
@@ -43,6 +42,8 @@ public:
         cout << "3. Show Reports about supplies by title" << endl;
         cin >> choice;
         string title;
+        cout << "2. Show Reports" << endl;
+        cin >> choice;
         switch (choice) {
             case 1:
                 addBook();
