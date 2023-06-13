@@ -42,8 +42,6 @@ public:
         cout << "3. Show Reports about supplies by title" << endl;
         cin >> choice;
         string title;
-        cout << "2. Show Reports" << endl;
-        cin >> choice;
         switch (choice) {
             case 1:
                 addBook();
@@ -51,9 +49,10 @@ public:
             case 2:
                 Raports:: Raports::CountSupplies();
                 break;
-            case 3: // nie wiem co jest zjebane
-                cout<<"About which title you want to get raport?"<<endl;
-                cin>>title;
+            case 3:
+                cout << "About which title you want to get report?" << endl;
+                cin.ignore();
+                getline(cin, title);
                 Raports::CountSuppliesByTitle(title);
                 break;
             case 4:
