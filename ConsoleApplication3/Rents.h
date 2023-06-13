@@ -56,6 +56,32 @@ class Rents {
              if (file.is_open()) {
                  file << rentId << "," << bookId << "," << borrowerId << "," << rentDate << "," << returnDate << endl;
                  cout << "Succesfully rented, you have time until: " << returnDate << endl;
+
+                 ifstream inputFile("SuppliesOfBooks.txt");
+                 ofstream outputFile("SuppliesOfBooks_tmp.txt");
+
+                 if (inputFile && outputFile) {
+                     string line;
+                     int temp = 0;
+                     while (getline(inputFile, line)) {
+                         temp++;
+                         if(temp == bookId){
+                             size_t lastCommaPos = line.find_last_of(",");
+                             if (lastCommaPos != string::npos) {
+                                 line.replace(lastCommaPos + 1, 1, "1");
+                             }
+                         }
+                         outputFile << line << '\n';
+                     }
+
+                     inputFile.close();
+                     outputFile.close();
+
+                     remove("SuppliesOfBooks.txt");
+                     rename("SuppliesOfBooks_tmp.txt", "SuppliesOfBooks.txt");
+                 }
+                 else
+                     cout << "err";
              }
              else {
                  cout << "err";
