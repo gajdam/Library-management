@@ -7,8 +7,8 @@
 
 using namespace std;
 
-void signIn() {
-    int id;
+int signIn() {
+    int id = 0;
     string password;
 
     cout << "Enter your id: ";
@@ -27,6 +27,7 @@ void signIn() {
     else {
         cout << "Invalid ID or password. Please try again." << endl;
     }
+    return id;
 }
 
 void signUp() {
@@ -78,8 +79,27 @@ void addBook() {
     book.ShowBook();
 }
 
+void rentABook(int userId) {
+    int idOfRent, bookId;
+    Rents::showRentable();
+    cin.ignore();
+    cin >> bookId;
+    time_t now = time(0);
+    struct tm gmtm = *localtime(&now);
+    char rentDate[80];
+    char returnDate[80];
+    strftime(rentDate, sizeof(rentDate), "%Y-%m-%d", &gmtm);
+    gmtm.tm_mon += 1;
+    strftime(returnDate, sizeof(returnDate), "%Y-%m-%d", &gmtm);
+
+    idOfRent = Rents::AutoIncrementIdOfRent();
+    Rents rent(idOfRent, userId, bookId, rentDate, returnDate);
+    rent.saveRentToFile();
+}
+
 int main() {
-    int choice, id = 0, distYear, idOfBook;
+    string choice;
+    int userID = 0;
     string nameAuthor, surnameAuthor;
     srand(time(NULL));
 
@@ -88,35 +108,33 @@ int main() {
 
     cout << "1. Sign In" << endl;
     cout << "2. Sign up" << endl;
-    cin >> choice;
+    cout << "Choose: ";
 
-    if (choice == 1) {
-        signIn();
+    while(userID == 0) {
+        getline(cin, choice);
+        if (choice == "1") {
+            userID = signIn();
+        }
+        else if (choice == "2") {
+            signUp();
+        }
+        else
+            cout << "There's no such option, try again!: ";
     }
-    else if (choice == 2) {
-        signUp();
-    }
-    else if (choice == 3) {
-        addBook();
-    }
-    else if (choice == 4) {
-//        int borrowerId = 1;
-//        int bookId = 2;
-//        int year = 2023;
-//        int month = 6;
-//        int day = 3;
-//
-//        Rents rents(borrowerId, bookId, year, month, day);
-//        std::tm rentDate = rents.getRentDate();
-//        std::cout << "Date of rent: " << rentDate.tm_year << "-" << rentDate.tm_mon << "-" << rentDate.tm_mday << std::endl;
-        Rents::showRentable();
+    system("cls");
 
-
-    }
-    else {
-        cout << "bye";
-        return 0;
-    }
+    do {
+        cout << "Welcome to the book library!!" << endl;
+        cout << "1. Rent a book" << endl;
+        cout << "2. Exit" << endl;
+        cout << "Choose: ";
+        cin >> choice;
+        if (choice == "1") {
+            rentABook(userID);
+        }
+        system("cls");
+    } while(choice != "2");
+    cout << "Goodbye!" << endl;
 
     return 0;
 }
