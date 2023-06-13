@@ -1,6 +1,5 @@
-1 Ala_ma_kota William Szekspir 1974 Dramat 0
-2 Pan_Tadeusz Adam Mickiewicz 1850 Dramat 0
-3 Pan_Tadeusz Adam Mickiewicz 1850 Dramat 0
-4 Pan_Tadeusz Adam Mickiewcz 1850 Dramat 0
-5 Ala_ma_kota William Szekspir 1974 Dramat 0
-6 miau miau miau 2023 miau 0
+1,Ala ma kota,William,Szekspir,1974,Dramat,0
+2,Ala ma kota,William,Szekspir,1974,Dramat,0
+3,Ala ma kota,William,Szekspir,1974,Dramat,1
+4,Ala ma kota,William,Szekspir,1974,Dramat,0
+5,Jebana zjawa,Kurt,Wagner,2011,Komedia,0
