@@ -36,13 +36,14 @@ class Admin {
 public:
       void AdminMenu() {
         int choice = 0;
-        while(choice != 5){
+        while(choice != 6){
             cout << "Select Option From Menu"<<endl;
             cout << "1. Add Book" << endl;
             cout << "2. Show Reports about supplies" << endl;
             cout << "3. Show Reports about supplies by title" << endl;
             cout << "4. Show Reports about rented books" << endl;
-            cout << "5. Exit admin mode" << endl;
+            cout << "5. Show Reports about rents" << endl;
+            cout << "6. Exit admin mode" << endl;
             cout << "Choose: ";
             cin >> choice;
             string title;
@@ -61,6 +62,9 @@ public:
                     break;
                 case 4:
                     Raports::RaportForAdmin();
+                    break;
+                case 5:
+                    Raports::RaportOfRents();
                     break;
                 default:
                     break;
