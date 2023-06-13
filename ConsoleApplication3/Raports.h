@@ -127,7 +127,7 @@ public:
                     return lineVars[1];
                 }
             }
-        return "Brak u¿ytkownika";
+        return "No User";
     }
     static bool isDateToDay(const std::string& returnDate)
     {
@@ -174,7 +174,7 @@ public:
                 return lineVars[1];
             }
         }
-        return "Brak takiej ksi¹¿ki w bazie";
+        return "No such a book in a base";
     }
 
 
